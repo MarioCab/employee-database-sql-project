@@ -2,7 +2,7 @@
   "name": "sql-datbase-week-12",
   "version": "1.0.0",
   "description": "Database for managing a companies employees",
-  "main": "index.js",
+  "main": "employeeTrackerBasic.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "console.table": "^0.10.0",
-    "inquirer": "^8.0.0"
+    "inquirer": "^8.0.0",
+    "mysql": "^2.18.1"
   }
 }
