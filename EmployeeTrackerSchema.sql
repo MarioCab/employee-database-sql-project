@@ -5,11 +5,10 @@ USE employeeTracker_DB;
 
 CREATE TABLE department(
     id INT NOT NULL,
-    name VARCHAR(30) NOT NULL,
+    dept_name VARCHAR(30) NOT NULL,
     PRIMARY KEY (id)
 );
 
-USE employeeTracker_DB;
 
 CREATE TABLE role(
     id INT NOT NULL,
@@ -20,7 +19,6 @@ CREATE TABLE role(
     FOREIGN KEY (department_id) REFERENCES department(id)
 );
 
-USE employeeTracker_DB;
 
 CREATE TABLE employee(
     id INT NOT NULL,

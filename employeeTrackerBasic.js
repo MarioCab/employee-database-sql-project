@@ -1,12 +1,12 @@
-const mysql = require("mysql");
+const mysql = require("mysql2");
 const inquirer = require("inquirer");
 
 const connection = mysql.createConnection({
   host: "localhost",
-  port: 3006,
   user: "root",
-  password: "Icancode123!",
+  password: "blank",
   database: "employeeTracker_DB",
+  insecureAuth: true,
 });
 
 const startQuestions = () => {
@@ -30,8 +30,6 @@ const startQuestions = () => {
     });
 };
 
-startQuestions();
-
 const addDept = () => {
   inquirer
     .prompt([
@@ -48,10 +46,10 @@ const addDept = () => {
     ])
     .then((answer) => {
       connection.query(
-        "INSERT INTO department",
+        "INSERT INTO department SET ?",
         {
           id: answer.deptID,
-          name: answer.deptName,
+          dept_name: answer.deptName,
         },
         (err) => {
           if (err) throw err;
@@ -62,7 +60,7 @@ const addDept = () => {
     });
 };
 
-// connection.connect((err) => {
-//   if (err) throw err;
-//   startQuestions();
-// });
+connection.connect((err) => {
+  if (err) throw err;
+  startQuestions();
+});
