@@ -4,28 +4,25 @@ CREATE DATABASE employeeTracker_DB;
 USE employeeTracker_DB;
 
 CREATE TABLE department(
-    id INT NOT NULL,
-    dept_name VARCHAR(30) NOT NULL,
-    PRIMARY KEY (id)
+    dept_id INT NOT NULL PRIMARY KEY,
+    dept_name VARCHAR(30) NOT NULL
 );
 
 
 CREATE TABLE role(
-    id INT NOT NULL,
+    role_id INT NOT NULL PRIMARY KEY,
     title VARCHAR(30) NOT NULL,
     salary DECIMAL(5,2),
-    department_id INT NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (department_id) REFERENCES department(id)
+    department_id INT,
+    FOREIGN KEY (department_id) REFERENCES department(dept_id)
 );
 
 
 CREATE TABLE employee(
-    id INT NOT NULL,
+    employee_id INT NOT NULL PRIMARY KEY,
     first_name VARCHAR(30) NOT NULL,
     last_name VARCHAR(30) NOT NULL,
-    role_id INT NOT NULL,
-    PRIMARY KEY(id),
-    FOREIGN KEY (role_id) REFERENCES role(id)
+    role_id INT,
+    FOREIGN KEY (role_id) REFERENCES role(role_id)
     -- REFERENCE MANAGER ID HERE IN FUTURE
 );
