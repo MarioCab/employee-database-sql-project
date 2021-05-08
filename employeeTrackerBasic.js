@@ -20,32 +20,57 @@ const startQuestions = () => {
     .prompt({
       name: `introQuestion`,
       type: `list`,
-      message: `What would you like to add to the database?`,
-      choices: [`Department`, `Role`, `Employee`, `Nothing`],
+      message: `What would you like to do?`,
+      choices: [
+        `Add to database`,
+        `Remove from database`,
+        `Update database`,
+        `Nothing`,
+      ],
     })
     .then((answer) => {
-      if (answer.introQuestion === "Department") {
-        addDept();
-      } else if (answer.introQuestion === "Role") {
-        addRole();
-      } else if (answer.introQuestion === "Employee") {
-        addEmployee();
+      if (answer.introQuestion === "Add to database") {
+        addToDb();
+      } else if (answer.introQuestion === "Remove from database") {
+        rmFromDb();
+      } else if (answer.introQuestion === "Update database") {
+        updateDb();
       } else {
+        console.log("Have a good day!");
         connection.end;
       }
     });
 };
 
-// Questions to fill DB
+// Questions to add to database
+
+const addToDb = () => {
+  inquirer
+    .prompt({
+      name: `addQuestion`,
+      type: `list`,
+      message: `What would you like to add to the database?`,
+      choices: [`Department`, `Role`, `Employee`, `Nothing`],
+    })
+    .then((answer) => {
+      if (answer.addQuestion === "Department") {
+        addDept();
+      } else if (answer.addQuestion === "Role") {
+        addRole();
+      } else if (answer.addQuestion === "Employee") {
+        addEmployee();
+      } else {
+        console.log("Have a good day!");
+        connection.end;
+      }
+    });
+};
+
+// add a department
 
 const addDept = () => {
   inquirer
     .prompt([
-      {
-        name: "deptID",
-        type: "input",
-        message: "What is the ID number of the department?",
-      },
       {
         name: "deptName",
         type: "input",
@@ -56,7 +81,6 @@ const addDept = () => {
       connection.query(
         "INSERT INTO department SET ?",
         {
-          dept_id: answer.deptID,
           dept_name: answer.deptName,
         },
         (err) => {
@@ -67,14 +91,12 @@ const addDept = () => {
       );
     });
 };
+
+// add a role
+
 const addRole = () => {
   inquirer
     .prompt([
-      {
-        name: "roleID",
-        type: "input",
-        message: "What is the ID number of the role?",
-      },
       {
         name: "roleTitle",
         type: "input",
@@ -91,7 +113,6 @@ const addRole = () => {
       connection.query(
         "INSERT INTO role SET ?",
         {
-          role_id: answer.roleID,
           title: answer.roleTitle,
           salary: answer.roleSalary,
         },
@@ -103,14 +124,12 @@ const addRole = () => {
       );
     });
 };
+
+// add an employee
+
 const addEmployee = () => {
   inquirer
     .prompt([
-      {
-        name: "employeeID",
-        type: "input",
-        message: "What is the ID number of the employee?",
-      },
       {
         name: "firstName",
         type: "input",
@@ -126,7 +145,6 @@ const addEmployee = () => {
       connection.query(
         "INSERT INTO employee SET ?",
         {
-          employee_id: answer.employeeID,
           first_name: answer.firstName,
           last_name: answer.lastName,
         },
@@ -137,6 +155,15 @@ const addEmployee = () => {
         }
       );
     });
+};
+
+// questions for removing from database
+
+const rmFromDb () => {
+  inquirer
+  .prompt({
+
+  })
 };
 
 //start server
