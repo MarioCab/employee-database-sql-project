@@ -108,8 +108,8 @@ const addRole = async () => {
   );
   console.log(dept);
   const deptArray = dept.map(({ dept_name, dept_id }) => ({
-    name: title,
-    value: role_id,
+    name: dept_name,
+    value: dept_id,
   }));
   inquirer
     .prompt([
@@ -123,6 +123,12 @@ const addRole = async () => {
         type: "input",
         message: "What is the salary of the job?",
         default: "EX: 50.000",
+      },
+      {
+        name: "whatDept",
+        tpye: "list",
+        message: "What department does this role belong to?",
+        choices: deptArray,
       },
     ])
     .then((answer) => {
