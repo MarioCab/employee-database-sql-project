@@ -9,9 +9,10 @@
   "author": "Mario Cabrera",
   "license": "ISC",
   "dependencies": {
-    "console.table": "^0.10.0",
+    "console-table-printer": "^2.8.2",
     "express": "^4.17.1",
     "inquirer": "^8.0.0",
-    "mysql2": "^2.2.5"
+    "mysql2": "^2.2.5",
+    "util": "^0.12.3"
   }
 }
