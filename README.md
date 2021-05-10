@@ -8,6 +8,10 @@ This project uses node npm packages such as inquirer, as well as MYSQL in order 
 
 Proper installation for use of this project will require Node.js, with the inquirer package, as well as the mysql2 package. MYSQL will also need to be installed onto the users machine.
 
+Demonstaration of working app:
+
+<iframe src="https://drive.google.com/file/d/196Xo5-LoOoVVdxprMobtNvJzSXOQmVgF/preview" width="640" height="480"></iframe>
+
 ## Usage
 
 From a business standpoint, it is always helpful to have access to easy to read data-bases and be allowed to freely edit them easily from the command line, without needing to go read through lines and lines of code. The biggest thing this project helps with is organization of a business. This project also has ample room to grow, with some touching points being to add the ability to name your own table from the command line, create more tables, and expand on the information given in the tables already provided.

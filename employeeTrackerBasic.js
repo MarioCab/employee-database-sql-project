@@ -27,7 +27,7 @@ const startQuestions = () => {
       message: `What would you like to do?`,
       choices: [
         `Add to Database`,
-        \\\\\\`Remove from Database`,
+        `Remove from Database`,
         `View Database`,
         `Nothing`,
       ],
