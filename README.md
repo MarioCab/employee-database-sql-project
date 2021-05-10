@@ -10,7 +10,7 @@ Proper installation for use of this project will require Node.js, with the inqui
 
 Demonstaration of working app:
 
-<iframe src="https://drive.google.com/file/d/196Xo5-LoOoVVdxprMobtNvJzSXOQmVgF/preview" width="640" height="480"></iframe>
+![employeeDBExample](https://user-images.githubusercontent.com/77696841/117711369-2a274600-b1a1-11eb-8440-760c503b850a.gif)
 
 ## Usage
 
