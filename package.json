@@ -1,5 +1,5 @@
 {
-  "name": "sql-datbase-week-12",
+  "name": "employee-database",
   "version": "1.0.0",
   "description": "Database for managing a companies employees",
   "main": "employeeTrackerBasic.js",

@@ -27,8 +27,7 @@ const startQuestions = () => {
       message: `What would you like to do?`,
       choices: [
         `Add to Database`,
-        `Remove from Database`,
-        `Update Database`,
+        \\\\\\`Remove from Database`,
         `View Database`,
         `Nothing`,
       ],
@@ -38,8 +37,6 @@ const startQuestions = () => {
         addToDb();
       } else if (answer.introQuestion === "Remove from Database") {
         rmFromDb();
-      } else if (answer.introQuestion === "Update Database") {
-        updateDb();
       } else if (answer.introQuestion === "View Database") {
         viewDb();
       } else {
@@ -331,7 +328,7 @@ const viewDb = () => {
       name: "viewWhat",
       type: "list",
       message: "What table do you want to view?",
-      choices: ["Department", "Role", "Employee", "View Company", "Nevermind"],
+      choices: ["Department", "Role", "Employee", "Nevermind"],
     })
     .then((answer) => {
       switch (answer.viewWhat) {
@@ -343,9 +340,6 @@ const viewDb = () => {
           break;
         case "Employee":
           viewEmployee();
-          break;
-        case "View Company":
-          // call view company
           break;
         default:
           startQuestions();
@@ -374,14 +368,6 @@ const viewEmployee = () => {
     .then((res) => printTable(res))
     .catch((err) => console.log(err));
 };
-// const viewCompany = () => {
-//   connection.query = util.promisify(connection.query);
-//   connection
-//     .query("SELECT dept_name AS Department FROM department")
-//     .then((res) => printTable(res))
-//     .catch((err) => console.log(err));
-// };
-//start server
 
 connection.connect((err) => {
   if (err) throw err;
